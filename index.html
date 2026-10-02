@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMK Nusantara Teknologi — Portal Sekolah</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:'#d31f26', primarydark:'#a31218', dark:'#1f2937' },
+  fontFamily: { sans:['Inter','system-ui','sans-serif'] }
+}}}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+<style>
+  html{scroll-behavior:smooth}
+  .dropdown:hover .dropdown-menu{display:block}
+  .card-hover{transition:transform .25s ease, box-shadow .25s ease}
+  .card-hover:hover{transform:translateY(-5px); box-shadow:0 15px 35px -12px rgba(211,31,38,.3)}
+  .slide{display:none}
+  .slide.active{display:block; animation:fade .8s ease}
+  @keyframes fade{from{opacity:.4}to{opacity:1}}
+  .dot{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.5);cursor:pointer}
+  .dot.active{background:#fff;width:26px}
+</style>
+</head>
+<body class="bg-white text-slate-800 font-sans">
+
+<!-- ===== TOP BAR ===== -->
+<div class="bg-primarydark text-white text-xs">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-5">
+      <span><i class="fa-solid fa-phone mr-1"></i> (021) 555-0123</span>
+      <span class="hidden sm:inline"><i class="fa-solid fa-envelope mr-1"></i> info@smknusantara.sch.id</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#" class="hover:text-red-200"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-red-200"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-red-200"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" class="hover:text-red-200"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER / NAVBAR ===== -->
+<header class="sticky top-0 z-40 bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+    <a href="#beranda" class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-2xl shadow"><i class="fa-solid fa-tower-broadcast"></i></div>
+      <div class="leading-tight">
+        <p class="font-black text-primary text-base sm:text-lg tracking-tight">SMK NUSANTARA TEKNOLOGI</p>
+        <p class="text-[11px] text-slate-500">Religius · Disiplin · Inovatif</p>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1 text-sm font-bold text-slate-700">
+      <div class="dropdown relative">
+        <a href="#beranda" class="px-3 py-2 hover:text-primary">BERANDA <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
+        <div class="dropdown-menu hidden absolute left-0 top-full bg-white shadow-xl rounded-b-lg border border-slate-200 w-56 py-2 text-[13px] font-semibold">
+          <a href="#sambutan" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Sambutan Kepala Sekolah</a>
+          <a href="#berita" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Berita Terkini</a>
+          <a href="#galeri" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Galeri Sekolah</a>
+        </div>
+      </div>
+      <div class="dropdown relative">
+        <a href="#tentang" class="px-3 py-2 hover:text-primary">TENTANG KAMI <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
+        <div class="dropdown-menu hidden absolute left-0 top-full bg-white shadow-xl rounded-b-lg border border-slate-200 w-56 py-2 text-[13px] font-semibold">
+          <a href="#profil" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Profil Sekolah</a>
+          <a href="#visimisi" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Visi Misi</a>
+          <a href="#struktur" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Struktur Organisasi</a>
+          <a href="#akreditasi" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Akreditasi</a>
+          <a href="#hubin" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Hubungan Industri</a>
+          <a href="#fasilitas" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Fasilitas</a>
+          <a href="#prestasi" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Prestasi</a>
+        </div>
+      </div>
+      <div class="dropdown relative">
+        <a href="#jurusan" class="px-3 py-2 hover:text-primary">JURUSAN <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
+        <div class="dropdown-menu hidden absolute left-0 top-full bg-white shadow-xl rounded-b-lg border border-slate-200 w-64 py-2 text-[13px] font-semibold">
+          <a href="#jurusan" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Teknik Komputer dan Jaringan</a>
+          <a href="#jurusan" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Rekayasa Perangkat Lunak</a>
+          <a href="#jurusan" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Desain Komunikasi Visual</a>
+          <a href="#jurusan" class="block px-4 py-2 hover:bg-red-50 hover:text-primary">Teknik Telekomunikasi</a>
+        </div>
+      </div>
+      <a href="#ppdb" class="px-3 py-2 hover:text-primary">PPDB</a>
+      <a href="#kontak" class="px-3 py-2 hover:text-primary">KONTAK</a>
+      <a href="#portal" class="ml-2 bg-primary hover:bg-primarydark text-white px-4 py-2 rounded shadow"><i class="fa-solid fa-right-to-bracket mr-1"></i>LOGIN</a>
+    </nav>
+    <button id="hamburger" class="lg:hidden text-2xl text-primary"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 px-6 py-4 text-sm font-bold text-slate-700 space-y-2">
+    <a href="#sambutan" class="block py-1">Sambutan Kepala Sekolah</a>
+    <a href="#berita" class="block py-1">Berita Terkini</a>
+    <a href="#galeri" class="block py-1">Galeri Sekolah</a>
+    <a href="#profil" class="block py-1">Profil Sekolah</a>
+    <a href="#visimisi" class="block py-1">Visi Misi</a>
+    <a href="#struktur" class="block py-1">Struktur Organisasi</a>
+    <a href="#fasilitas" class="block py-1">Fasilitas</a>
+    <a href="#jurusan" class="block py-1">Jurusan</a>
+    <a href="#ppdb" class="block py-1">PPDB</a>
+    <a href="#kontak" class="block py-1">Kontak</a>
+    <a href="#portal" class="block py-1 text-primary">Login Portal</a>
+  </div>
+</header>
+
+<!-- ===== HERO SLIDER ===== -->
+<section id="beranda" class="relative">
+  <div class="slide active relative h-[420px] sm:h-[520px] flex items-center overflow-hidden"><img src="img/gedung.jpg" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-r from-red-900/95 via-primary/80 to-red-900/50"></div>
+    <div class="max-w-7xl mx-auto px-6 text-white relative z-10">
+      <p class="badge bg-white/20 border border-white/30 inline-block mb-4 text-xs font-bold px-3 py-1 rounded-full">AKREDITASI A · TERAKREDITASI BAN-S/M</p>
+      <h1 class="text-4xl sm:text-6xl font-black leading-tight max-w-2xl">Mencetak Generasi<br>Teknologi Unggul</h1>
+      <p class="mt-4 max-w-xl text-white/85">Sekolah menengah kejuruan berbasis teknologi informasi dan komunikasi dengan kurikulum industri 4.0.</p>
+      <div class="mt-6 flex gap-3">
+        <a href="#ppdb" class="bg-white text-primary font-bold px-6 py-3 rounded shadow-lg">Daftar PPDB 2026/2027</a>
+        <a href="#profil" class="border-2 border-white/60 hover:bg-white/10 font-bold px-6 py-3 rounded">Profil Sekolah</a>
+      </div>
+    </div>
+  </div>
+  <div class="slide relative h-[420px] sm:h-[520px] flex items-center overflow-hidden"><img src="img/datacenter.jpg" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-0 bg-dark/75"></div>
+    <div class="max-w-7xl mx-auto px-6 text-white relative z-10">
+      <h1 class="text-4xl sm:text-6xl font-black leading-tight max-w-2xl">Kunjungan Industri<br>& Magang Bersertifikat</h1>
+      <p class="mt-4 max-w-xl text-white/85">Kemitraan dengan 20+ perusahaan teknologi untuk pengalaman kerja nyata sejak kelas XI.</p>
+      <a href="#hubin" class="inline-block mt-6 bg-primary font-bold px-6 py-3 rounded shadow-lg">Lihat Mitra Industri</a>
+    </div>
+  </div>
+  <div class="slide relative h-[420px] sm:h-[520px] flex items-center overflow-hidden"><img src="img/lab-siswi.jpg" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-0 bg-dark/70"></div>
+    <div class="max-w-7xl mx-auto px-6 text-white relative z-10">
+      <h1 class="text-4xl sm:text-6xl font-black leading-tight max-w-2xl">Fasilitas Lengkap,<br>Lingkungan Belajar Nyaman</h1>
+      <p class="mt-4 max-w-xl text-white/85">12 laboratorium komputer, studio multimedia, dan lapangan olahraga berstandar nasional.</p>
+      <a href="#fasilitas" class="inline-block mt-6 bg-white text-primary font-bold px-6 py-3 rounded shadow-lg">Jelajahi Fasilitas</a>
+    </div>
+  </div>
+  <div class="absolute bottom-5 left-0 right-0 flex justify-center gap-2" id="dots"></div>
+</section>
+
+<!-- ===== SAMBUTAN KEPALA SEKOLAH ===== -->
+<section id="sambutan" class="py-20 bg-slate-50 border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-10 items-center">
+    <div class="lg:col-span-2">
+      <div class="bg-gradient-to-br from-primary to-red-400 rounded-2xl p-10 text-white text-center shadow-xl">
+        <img src="img/kepsek.jpg" alt="Kepala Sekolah" class="w-28 h-28 mx-auto rounded-full object-cover ring-4 ring-white/40 mb-4">
+        <p class="font-black text-lg">Drs. Bambang Santoso, M.Pd.</p>
+        <p class="text-white/80 text-sm">Kepala Sekolah</p>
+      </div>
+    </div>
+    <div class="lg:col-span-3">
+      <p class="text-xs font-black text-primary tracking-widest mb-2">SAMBUTAN KEPALA SEKOLAH</p>
+      <h2 class="text-3xl font-black text-dark">Selamat Datang di Portal Resmi Sekolah</h2>
+      <p class="mt-4 text-slate-600 leading-relaxed">Assalamu'alaikum warahmatullahi wabarakatuh. Puji syukur kita panjatkan ke hadirat Tuhan Yang Maha Esa atas berkah dan rahmat-Nya sehingga portal resmi SMK Nusantara Teknologi dapat hadir memberikan informasi terkini bagi seluruh warga sekolah dan masyarakat.</p>
+      <p class="mt-3 text-slate-600 leading-relaxed">Melalui portal ini, orang tua dapat memantau perkembangan akademik putra-putrinya, siswa dapat mengakses jadwal dan nilai, serta publik dapat mengenal program unggulan sekolah kami. Semoga kehadiran portal ini semakin mempererat komunikasi antara sekolah, siswa, orang tua, dan masyarakat.</p>
+      <p class="mt-4 font-bold text-dark">Drs. Bambang Santoso, M.Pd.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFO CEPAT ===== -->
+<section class="py-14 bg-white">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+    <div class="card-hover rounded-2xl border border-slate-200 p-6"><p class="text-4xl font-black text-primary">1.240+</p><p class="text-sm text-slate-500 mt-1 font-semibold">Siswa Aktif</p></div>
+    <div class="card-hover rounded-2xl border border-slate-200 p-6"><p class="text-4xl font-black text-primary">86</p><p class="text-sm text-slate-500 mt-1 font-semibold">Guru & Staf</p></div>
+    <div class="card-hover rounded-2xl border border-slate-200 p-6"><p class="text-4xl font-black text-primary">12</p><p class="text-sm text-slate-500 mt-1 font-semibold">Laboratorium</p></div>
+    <div class="card-hover rounded-2xl border border-slate-200 p-6"><p class="text-4xl font-black text-primary">20+</p><p class="text-sm text-slate-500 mt-1 font-semibold">Mitra Industri</p></div>
+  </div>
+</section>
+
+<!-- ===== BERITA TERKINI ===== -->
+<section id="berita" class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="text-xs font-black text-primary tracking-widest">KABAR SEKOLAH</p>
+      <h2 class="text-3xl font-black text-dark mt-1">Berita Terkini</h2>
+      <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="newsGrid"></div>
+  </div>
+</section>
+
+<!-- ===== PROFIL + VISI MISI ===== -->
+<section id="tentang" class="py-20">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
+    <div id="profil">
+      <p class="text-xs font-black text-primary tracking-widest">TENTANG KAMI</p>
+      <h2 class="text-3xl font-black text-dark mt-1">Profil Sekolah</h2>
+      <div class="w-16 h-1 bg-primary mt-4 rounded-full"></div>
+      <p class="mt-6 text-slate-600 leading-relaxed">SMK Nusantara Teknologi adalah sekolah menengah kejuruan swasta berakreditasi A yang berdiri sejak tahun 1992 di bawah naungan yayasan pendidikan. Sekolah ini berkomitmen menghasilkan lulusan yang religius, disiplin, inovatif, dan siap kerja di bidang teknologi informasi dan komunikasi.</p>
+      <table class="mt-6 w-full text-sm border border-slate-200 rounded-xl overflow-hidden">
+        <tbody class="divide-y divide-slate-200">
+          <tr><td class="p-3 bg-slate-50 font-bold w-44">Nama Sekolah</td><td class="p-3">SMK Nusantara Teknologi</td></tr>
+          <tr><td class="p-3 bg-slate-50 font-bold">NPSN</td><td class="p-3">20104462</td></tr>
+          <tr><td class="p-3 bg-slate-50 font-bold">Status</td><td class="p-3">Swasta · Akreditasi A</td></tr>
+          <tr><td class="p-3 bg-slate-50 font-bold">Kurikulum</td><td class="p-3">Kurikulum Merdeka (Kelas X), K13 (Kelas XI–XII)</td></tr>
+          <tr><td class="p-3 bg-slate-50 font-bold">Alamat</td><td class="p-3">Jl. Teknologi Raya No. 88, Jakarta Barat 11710</td></tr>
+          <tr><td class="p-3 bg-slate-50 font-bold">Telepon / Email</td><td class="p-3">(021) 555-0123 · info@smknusantara.sch.id</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="visimisi" class="space-y-6">
+      <div class="bg-white border-t-4 border-primary rounded-xl shadow-md p-7">
+        <h3 class="font-black text-dark text-lg"><i class="fa-solid fa-eye text-primary mr-2"></i>Visi</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">"Terwujudnya peserta didik yang beriman, cerdas, terampil, dan berwawasan global di bidang teknologi informasi dan komunikasi."</p>
+      </div>
+      <div class="bg-white border-t-4 border-primary rounded-xl shadow-md p-7">
+        <h3 class="font-black text-dark text-lg"><i class="fa-solid fa-bullseye text-primary mr-2"></i>Misi</h3>
+        <ul class="mt-3 space-y-2 text-sm text-slate-600 list-disc list-inside">
+          <li>Menyelenggarakan pendidikan vokasi berkualitas berbasis teknologi.</li>
+          <li>Membina peserta didik yang religius, disiplin, dan berakhlak mulia.</li>
+          <li>Memperkuat kemitraan dengan dunia industri dan perguruan tinggi.</li>
+          <li>Menumbuhkan semangat kewirausahaan dan inovasi digital.</li>
+        </ul>
+      </div>
+      <div id="akreditasi" class="bg-white border-t-4 border-primary rounded-xl shadow-md p-7">
+        <h3 class="font-black text-dark text-lg"><i class="fa-solid fa-certificate text-primary mr-2"></i>Akreditasi & Sertifikasi</h3>
+        <p class="mt-3 text-sm text-slate-600">Terakreditasi <b>A</b> oleh BAN-S/M (berlaku hingga 2027) · Sertifikasi ISO 9001:2015 · Sekolah Adiwiyata Nasional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STRUKTUR ORGANISASI ===== -->
+<section id="struktur" class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="text-xs font-black text-primary tracking-widest">MANAJEMEN SEKOLAH</p>
+      <h2 class="text-3xl font-black text-dark mt-1">Struktur Organisasi</h2>
+      <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="flex flex-col items-center gap-4">
+      <div class="bg-primary text-white rounded-xl px-8 py-4 text-center shadow-lg">
+        <p class="font-black">Drs. Bambang Santoso, M.Pd.</p><p class="text-xs text-white/80">Kepala Sekolah</p>
+      </div>
+      <div class="w-px h-6 bg-slate-400"></div>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200 rounded-xl px-6 py-4 text-center card-hover"><p class="font-bold text-dark text-sm">Ahmad Nuryadi, S.Kom.</p><p class="text-xs text-slate-500">Waka. Kurikulum</p></div>
+        <div class="bg-white border border-slate-200 rounded-xl px-6 py-4 text-center card-hover"><p class="font-bold text-dark text-sm">Siti Rahma, S.Pd.</p><p class="text-xs text-slate-500">Waka. Kesiswaan</p></div>
+        <div class="bg-white border border-slate-200 rounded-xl px-6 py-4 text-center card-hover"><p class="font-bold text-dark text-sm">Budi Santoso, M.Pd.</p><p class="text-xs text-slate-500">Waka. Hubungan Industri</p></div>
+      </div>
+      <div class="w-px h-6 bg-slate-400"></div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="bg-white border border-slate-200 rounded-xl px-5 py-3 text-center card-hover"><p class="font-bold text-dark text-xs">Rina Kartika, S.Kom.</p><p class="text-[11px] text-slate-500">Kepala Lab</p></div>
+        <div class="bg-white border border-slate-200 rounded-xl px-5 py-3 text-center card-hover"><p class="font-bold text-dark text-xs">Nadia Putri, S.Pd.</p><p class="text-[11px] text-slate-500">Wali Kelas X</p></div>
+        <div class="bg-white border border-slate-200 rounded-xl px-5 py-3 text-center card-hover"><p class="font-bold text-dark text-xs">Andi Pratama, S.Kom.</p><p class="text-[11px] text-slate-500">Wali Kelas XI</p></div>
+        <div class="bg-white border border-slate-200 rounded-xl px-5 py-3 text-center card-hover"><p class="font-bold text-dark text-xs">Drs. Hendra G.</p><p class="text-[11px] text-slate-500">Wali Kelas XII</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JURUSAN ===== -->
+<section id="jurusan" class="py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="text-xs font-black text-primary tracking-widest">PROGRAM KEAHLIAN</p>
+      <h2 class="text-3xl font-black text-dark mt-1">Konsentrasi Keahlian</h2>
+      <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="majorGrid"></div>
+  </div>
+</section>
+
+<!-- ===== FASILITAS ===== -->
+<section id="fasilitas" class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="text-xs font-black text-primary tracking-widest">SARANA & PRASARANA</p>
+      <h2 class="text-3xl font-black text-dark mt-1">Fasilitas Sekolah</h2>
+      <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="facilityGrid"></div>
+  </div>
+</section>
+
+<!-- ===== HUBUNGAN INDUSTRI ===== -->
+<section id="hubin" class="py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <p class="text-xs font-black text-primary tracking-widest">KEMITRAAN</p>
+      <h2 class="text-3xl font-black text-dark mt-1">Hubungan Industri & Mitra</h2>
+      <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </div>
+    <p class="text-center text-slate-600 max-w-2xl mx-auto">Sekolah menjalin kemitraan dengan perusahaan teknologi untuk program magang, rekruitmen lulusan, dan penyusunan kurikulum berbasis industri.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4" id="partnerGrid"></div>
+  </div>
+</section>
+
+<!-- ===== PRESTASI ===== -->
+<section id="prestasi" class="py-20 bg-dark text-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="text-xs font-black text-red-400 tracking-widest">KEBANGGAAN SEKOLAH</p>
+      <h2 class="text-3xl font-black mt-1">Prestasi Terbaru</h2>
+      <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="achievementGrid"></div>
+  </div>
+</section>
+
+<!-- ===== GALERI ===== -->
+<section id="galeri" class="py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="text-xs font-black text-primary tracking-widest">DOKUMENTASI</p>
+      <h2 class="text-3xl font-black text-dark mt-1">Galeri Sekolah</h2>
+      <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- ===== PPDB BANNER ===== -->
+<section id="ppdb" class="py-16 bg-gradient-to-r from-primarydark via-primary to-red-500 text-white">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-8">
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-black">PPDB 2026/2027 Telah Dibuka!</h2>
+      <p class="mt-2 text-white/85 max-w-xl">Tiga jalur pendaftaran: Jalur Prestasi, Jalur Mitra, dan Jalur Mandiri. Kuota terbatas — daftar sekarang!</p>
+      <div class="mt-4 flex flex-wrap gap-3 text-xs font-bold">
+        <span class="bg-white/20 px-3 py-1.5 rounded-full">Gel. 1: Okt – Des 2026</span>
+        <span class="bg-white/20 px-3 py-1.5 rounded-full">Gel. 2: Jan – Mar 2027</span>
+        <span class="bg-white/20 px-3 py-1.5 rounded-full">Biaya: Terjangkau</span>
+      </div>
+    </div>
+    <form class="bg-white rounded-2xl p-6 w-full max-w-sm text-slate-800 shadow-2xl" onsubmit="event.preventDefault(); alert('Pendaftaran PPDB demo terkirim!'); this.reset();">
+      <p class="font-black text-dark mb-4">Formulir Minat PPDB</p>
+      <input required placeholder="Nama lengkap calon siswa" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm mb-3 focus:outline-none focus:ring-2 focus:ring-primary">
+      <input required placeholder="Asal SMP/MTs" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm mb-3 focus:outline-none focus:ring-2 focus:ring-primary">
+      <input required type="tel" placeholder="No. WhatsApp" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm mb-3 focus:outline-none focus:ring-2 focus:ring-primary">
+      <select class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-primary">
+        <option>Teknik Komputer dan Jaringan</option><option>Rekayasa Perangkat Lunak</option>
+        <option>Desain Komunikasi Visual</option><option>Teknik Telekomunikasi</option>
+      </select>
+      <button class="w-full bg-primary hover:bg-primarydark text-white py-3 rounded-lg font-bold">Daftar Sekarang</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== PORTAL AKADEMIK ===== -->
+<section id="portal" class="py-20 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <p class="text-xs font-black text-primary tracking-widest">LAYANAN DIGITAL</p>
+      <h2 class="text-3xl font-black text-dark mt-1">Portal Akademik</h2>
+      <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="flex border-b border-slate-200">
+          <button data-tab="jadwal" class="tabbtn flex-1 py-3 font-bold text-sm text-primary border-b-2 border-primary">Jadwal Pelajaran</button>
+          <button data-tab="nilai" class="tabbtn flex-1 py-3 font-bold text-sm text-slate-500">Nilai Semester</button>
+          <button data-tab="pengumuman" class="tabbtn flex-1 py-3 font-bold text-sm text-slate-500">Pengumuman</button>
+        </div>
+        <div id="tab-jadwal" class="tabpanel p-5 overflow-x-auto">
+          <table class="w-full text-sm min-w-[540px]">
+            <thead><tr class="text-left text-xs text-slate-500 border-b"><th class="p-3">Hari</th><th class="p-3">Jam</th><th class="p-3">Mata Pelajaran</th><th class="p-3">Guru</th><th class="p-3">Ruang</th></tr></thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr><td class="p-3 font-bold text-primary">Senin</td><td class="p-3">07.00–08.30</td><td>Pemrograman Dasar</td><td>Andi Pratama, S.Kom.</td><td>Lab 1</td></tr>
+              <tr><td class="p-3"></td><td class="p-3">08.30–10.00</td><td>Sistem Komputer</td><td>Rina Kartika, S.Kom.</td><td>Lab 1</td></tr>
+              <tr><td class="p-3 font-bold text-primary">Selasa</td><td class="p-3">07.00–08.30</td><td>Jaringan Dasar</td><td>Budi Santoso, M.Pd.</td><td>Lab 2</td></tr>
+              <tr><td class="p-3"></td><td class="p-3">08.30–10.00</td><td>Desain Grafis</td><td>Nadia Putri, S.Pd.</td><td>Lab Multimedia</td></tr>
+              <tr><td class="p-3 font-bold text-primary">Rabu</td><td class="p-3">07.00–08.30</td><td>Pemrograman Web</td><td>Andi Pratama, S.Kom.</td><td>Lab 1</td></tr>
+              <tr><td class="p-3"></td><td class="p-3">08.30–10.00</td><td>Matematika</td><td>Drs. Hendra Gunawan</td><td>R. 10</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="tab-nilai" class="tabpanel hidden p-5 overflow-x-auto">
+          <table class="w-full text-sm min-w-[480px]">
+            <thead><tr class="text-left text-xs text-slate-500 border-b"><th class="p-3">Mata Pelajaran</th><th class="p-3">Tugas</th><th class="p-3">UTS</th><th class="p-3">UAS</th><th class="p-3">Akhir</th><th class="p-3">Predikat</th></tr></thead>
+            <tbody class="divide-y divide-slate-100" id="nilaiBody"></tbody>
+          </table>
+        </div>
+        <div id="tab-pengumuman" class="tabpanel hidden p-5 space-y-3">
+          <div class="flex gap-3 p-3 rounded-lg bg-red-50 border-l-4 border-primary"><i class="fa-solid fa-calendar-days text-primary mt-1"></i><div><p class="font-bold text-sm">Penilaian Tengah Semester</p><p class="text-xs text-slate-600">PTS dilaksanakan 13–18 Oktober 2026.</p></div></div>
+          <div class="flex gap-3 p-3 rounded-lg bg-red-50 border-l-4 border-primary"><i class="fa-solid fa-file-invoice text-primary mt-1"></i><div><p class="font-bold text-sm">SPP Bulan Oktober</p><p class="text-xs text-slate-600">Batas bayar tanggal 10, kode VA di portal siswa.</p></div></div>
+          <div class="flex gap-3 p-3 rounded-lg bg-red-50 border-l-4 border-primary"><i class="fa-solid fa-trophy text-primary mt-1"></i><div><p class="font-bold text-sm">Kompetisi Informatika 2026</p><p class="text-xs text-slate-600">Pendaftaran via wali kelas hingga 15 Oktober.</p></div></div>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+          <p class="font-black text-dark mb-4"><i class="fa-solid fa-right-to-bracket text-primary mr-2"></i>Login Portal</p>
+          <form onsubmit="event.preventDefault(); alert('Login berhasil (demo)!');" class="space-y-3">
+            <select class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+              <option>Siswa</option><option>Guru</option><option>Orang Tua</option>
+            </select>
+            <input required placeholder="NIS / NIP" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+            <input required type="password" placeholder="Password" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+            <button class="w-full bg-primary hover:bg-primarydark text-white py-2.5 rounded-lg font-bold text-sm">Masuk</button>
+            <p class="text-xs text-slate-500 text-center"><a href="#" class="text-primary font-bold">Lupa password?</a></p>
+          </form>
+        </div>
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+          <p class="font-black text-dark mb-4"><i class="fa-solid fa-link text-primary mr-2"></i>Layanan Digital</p>
+          <div class="grid grid-cols-2 gap-3 text-center text-xs font-bold">
+            <a href="#" class="border border-slate-200 rounded-lg p-3 hover:border-primary hover:text-primary transition"><i class="fa-solid fa-laptop-code block text-xl mb-1"></i>E-Learning</a>
+            <a href="#" class="border border-slate-200 rounded-lg p-3 hover:border-primary hover:text-primary transition"><i class="fa-solid fa-book block text-xl mb-1"></i>Perpustakaan</a>
+            <a href="#" class="border border-slate-200 rounded-lg p-3 hover:border-primary hover:text-primary transition"><i class="fa-solid fa-user-graduate block text-xl mb-1"></i>Portal Siswa</a>
+            <a href="#" class="border border-slate-200 rounded-lg p-3 hover:border-primary hover:text-primary transition"><i class="fa-solid fa-chalkboard-user block text-xl mb-1"></i>Portal Guru</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KONTAK ===== -->
+<section id="kontak" class="py-20">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
+    <div>
+      <p class="text-xs font-black text-primary tracking-widest">HUBUNGI KAMI</p>
+      <h2 class="text-3xl font-black text-dark mt-1">Kontak & Lokasi</h2>
+      <div class="w-16 h-1 bg-primary mt-4 rounded-full"></div>
+      <div class="mt-8 space-y-5 text-slate-600">
+        <div class="flex gap-4"><div class="w-11 h-11 rounded-lg bg-red-50 text-primary flex items-center justify-center shrink-0"><i class="fa-solid fa-location-dot"></i></div><div><p class="font-bold text-dark">Alamat</p><p class="text-sm">Jl. Teknologi Raya No. 88, Kel. Sukamaju, Kec. Cengkareng, Jakarta Barat 11710</p></div></div>
+        <div class="flex gap-4"><div class="w-11 h-11 rounded-lg bg-red-50 text-primary flex items-center justify-center shrink-0"><i class="fa-solid fa-phone"></i></div><div><p class="font-bold text-dark">Telepon / WA</p><p class="text-sm">(021) 555-0123 · 0811-555-0123</p></div></div>
+        <div class="flex gap-4"><div class="w-11 h-11 rounded-lg bg-red-50 text-primary flex items-center justify-center shrink-0"><i class="fa-solid fa-envelope"></i></div><div><p class="font-bold text-dark">Email</p><p class="text-sm">info@smknusantara.sch.id · hubin@smknusantara.sch.id</p></div></div>
+        <div class="flex gap-4"><div class="w-11 h-11 rounded-lg bg-red-50 text-primary flex items-center justify-center shrink-0"><i class="fa-solid fa-clock"></i></div><div><p class="font-bold text-dark">Jam Layanan</p><p class="text-sm">Senin–Jumat, 06.30–15.30 WIB</p></div></div>
+      </div>
+    </div>
+    <form class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4" onsubmit="event.preventDefault(); alert('Pesan terkirim (demo)!'); this.reset();">
+      <input required placeholder="Nama lengkap" class="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+      <input required type="email" placeholder="Email" class="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+      <textarea required rows="4" placeholder="Pesan Anda..." class="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+      <button class="w-full bg-primary hover:bg-primarydark text-white py-3 rounded-lg font-bold">Kirim Pesan</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-dark text-slate-400 text-sm">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-xl"><i class="fa-solid fa-tower-broadcast"></i></div>
+        <div class="leading-tight"><p class="font-black text-white">SMK NUSANTARA TEKNOLOGI</p><p class="text-[10px]">Religius · Disiplin · Inovatif</p></div>
+      </div>
+      <p class="text-xs leading-relaxed">Sekolah menengah kejuruan swasta berakreditasi A di bidang teknologi informasi dan komunikasi.</p>
+    </div>
+    <div>
+      <p class="font-black text-white mb-4">Tentang Kami</p>
+      <ul class="space-y-2 text-xs">
+        <li><a href="#profil" class="hover:text-white">Profil Sekolah</a></li>
+        <li><a href="#visimisi" class="hover:text-white">Visi Misi</a></li>
+        <li><a href="#struktur" class="hover:text-white">Struktur Organisasi</a></li>
+        <li><a href="#akreditasi" class="hover:text-white">Akreditasi</a></li>
+        <li><a href="#prestasi" class="hover:text-white">Prestasi</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-black text-white mb-4">Informasi</p>
+      <ul class="space-y-2 text-xs">
+        <li><a href="#berita" class="hover:text-white">Berita Terkini</a></li>
+        <li><a href="#ppdb" class="hover:text-white">PPDB 2026/2027</a></li>
+        <li><a href="#portal" class="hover:text-white">Portal Akademik</a></li>
+        <li><a href="#galeri" class="hover:text-white">Galeri Sekolah</a></li>
+        <li><a href="#hubin" class="hover:text-white">Hubungan Industri</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-black text-white mb-4">Kontak</p>
+      <p class="text-xs leading-relaxed">Jl. Teknologi Raya No. 88<br>Cengkareng, Jakarta Barat 11710<br>WA. 0811-555-0123<br>info@smknusantara.sch.id</p>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-4 text-center text-xs">Copyright © 2026 SMK NUSANTARA TEKNOLOGI · Konten dummy untuk keperluan tugas pengembangan aplikasi portal sekolah.</div>
+</footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-primary text-white shadow-lg hover:bg-primarydark z-40"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script>
+// slider
+const slides=document.querySelectorAll('.slide');
+const dotsBox=document.getElementById('dots');
+let cur=0;
+slides.forEach((_,i)=>{const d=document.createElement('span');d.className='dot'+(i===0?' active':'');d.onclick=()=>show(i);dotsBox.appendChild(d);});
+function show(i){cur=i;slides.forEach((s,j)=>s.classList.toggle('active',j===i));document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('active',j===i));}
+setInterval(()=>show((cur+1)%slides.length),6000);
+
+// data
+const news=[
+ {tag:'Prestasi',c:'bg-emerald-100 text-emerald-700',d:'28 Sep 2026',t:'Tim Robotik Raih Juara 1 Kompetisi Robot Nasional 2026',x:'Mengalahkan 120 tim dari seluruh Indonesia pada kategori line follower.',img:'img/robot-contest.jpg'},
+ {tag:'Akademik',c:'bg-red-100 text-primary',d:'20 Sep 2026',t:'Kunjungan Industri ke Pusat Data Regional',x:'Siswa kelas XI melihat langsung penerapan infrastruktur jaringan skala besar.',img:'img/datacenter.jpg'},
+ {tag:'Kegiatan',c:'bg-indigo-100 text-indigo-700',d:'12 Sep 2026',t:'Peringatan Hari Pendidikan Nasional 2026',x:'Rangkaian lomba, bakti sosial, dan pameran karya siswa di aula sekolah.',img:'img/upacara.jpg'},
+ {tag:'PPDB',c:'bg-amber-100 text-amber-700',d:'5 Sep 2026',t:'PPDB 2026/2027 Resmi Dibuka',x:'Tiga jalur pendaftaran: Prestasi, Mitra, dan Mandiri. Kuota terbatas!',img:'img/lab-siswi.jpg'},
+ {tag:'Kemitraan',c:'bg-cyan-100 text-cyan-700',d:'28 Agu 2026',t:'MoU dengan 5 Perusahaan Teknologi',x:'Penandatanganan kesepakatan magang dan rekruitmen lulusan.',img:'img/server-rack.jpg'},
+ {tag:'Kesiswaan',c:'bg-purple-100 text-purple-700',d:'15 Agu 2026',t:'Pentas Seni & Dies Natalis ke-34',x:'Panggung kreativitas siswa dimeriahkan 25 penampilan dari berbagai ekskul.',img:'img/pentas-seni.jpg'},
+];
+document.getElementById('newsGrid').innerHTML=news.map(n=>`
+ <article class="card-hover bg-white rounded-2xl border border-slate-200 overflow-hidden">
+   <img src="${n.img}" alt="${n.t}" class="h-40 w-full object-cover">
+   <div class="p-5">
+     <div class="flex items-center gap-2 text-xs"><span class="badge ${n.c} font-bold px-2.5 py-0.5 rounded-full">${n.tag}</span><span class="text-slate-400">${n.d}</span></div>
+     <h3 class="font-bold text-dark mt-3 leading-snug">${n.t}</h3>
+     <p class="text-sm text-slate-600 mt-2">${n.x}</p>
+     <a href="#" class="inline-block mt-3 text-sm font-bold text-primary hover:underline">Baca Selengkapnya →</a>
+   </div>
+ </article>`).join('');
+
+const majors=[
+ {i:'fa-network-wired',t:'Teknik Komputer dan Jaringan',d:'Instalasi jaringan, administrasi server, dan keamanan jaringan.'},
+ {i:'fa-code',t:'Rekayasa Perangkat Lunak',d:'Pemrograman web & mobile, basis data, dan rekayasa perangkat lunak.'},
+ {i:'fa-palette',t:'Desain Komunikasi Visual',d:'Desain grafis, fotografi, videografi, dan multimedia interaktif.'},
+ {i:'fa-tower-cell',t:'Teknik Telekomunikasi',d:'Sistem transmisi, fiber optik, dan infrastruktur telekomunikasi.'},
+];
+document.getElementById('majorGrid').innerHTML=majors.map(m=>`
+ <div class="card-hover bg-white rounded-2xl border border-slate-200 p-6 text-center">
+   <div class="w-14 h-14 mx-auto rounded-full bg-red-50 text-primary flex items-center justify-center text-2xl mb-4"><i class="fa-solid ${m.i}"></i></div>
+   <h3 class="font-black text-dark">${m.t}</h3>
+   <p class="text-sm text-slate-600 mt-2">${m.d}</p>
+ </div>`).join('');
+
+const facilities=[
+ ['fa-computer','Lab Komputer 1–4'],['fa-video','Studio Multimedia'],['fa-microscope','Lab Sistem Komputer'],
+ ['fa-futbol','Lapangan Olahraga'],['fa-book','Perpustakaan Digital'],['fa-mosque','Masjid Sekolah'],
+ ['fa-utensils','Kantin & Koperasi'],['fa-car','Area Parkir'],
+];
+document.getElementById('facilityGrid').innerHTML=facilities.map(f=>`
+ <div class="card-hover bg-white rounded-xl border border-slate-200 p-5 text-center">
+   <i class="fa-solid ${f[0]} text-3xl text-primary mb-3"></i>
+   <p class="font-bold text-dark text-sm">${f[1]}</p>
+ </div>`).join('');
+
+const partners=['PT Telco Nusantara','PT Solusi Digital','PT Kreatif Media','PT Network Prima','PT Data Center Indonesia','PT Kreasi Anak Bangsa'];
+document.getElementById('partnerGrid').innerHTML=partners.map(p=>`
+ <div class="card-hover bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 font-bold text-sm text-slate-600 flex items-center gap-2">
+   <i class="fa-solid fa-building text-primary"></i>${p}
+ </div>`).join('');
+
+const ach=[
+ ['fa-trophy','Juara 1','LKS Kompetensi Keahlian Tingkat Provinsi 2026'],
+ ['fa-medal','Juara 2','Kompetisi Desain Poster Nasional 2026'],
+ ['fa-award','Juara 1','Olimpiade Informatika Pelajar Jakarta 2026'],
+ ['fa-star','Best School','Anugerah Sekolah Digital Terbaik 2026'],
+];
+document.getElementById('achievementGrid').innerHTML=ach.map(a=>`
+ <div class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+   <i class="fa-solid ${a[0]} text-4xl text-amber-400 mb-3"></i>
+   <p class="font-black text-xl">${a[1]}</p>
+   <p class="text-xs text-slate-400 mt-2">${a[2]}</p>
+ </div>`).join('');
+
+const galeri=['img/gedung.jpg','img/robot-exhibition.jpg','img/pentas-seni.jpg','img/upacara2.jpg','img/robot-wro.jpg','img/lab-siswa.jpg','img/line-follower.jpg','img/robotik-class.jpg'];
+document.getElementById('galleryGrid').innerHTML=galeri.map(g=>`
+ <div class="card-hover h-32 md:h-40 rounded-xl overflow-hidden"><img src="${g}" class="w-full h-full object-cover hover:scale-110 transition duration-500"></div>`).join('');
+
+const nilai=[['Pemrograman Dasar',92,89,94],['Sistem Komputer',80,83,85],['Jaringan Dasar',86,88,87],['Matematika',75,78,80],['Bahasa Inggris',86,88,87],['Desain Grafis',90,92,91]];
+document.getElementById('nilaiBody').innerHTML=nilai.map(n=>{
+ const akhir=Math.round((n[1]+n[2]+n[3])/3);
+ const pred=akhir>=90?'A':akhir>=80?'B':akhir>=70?'C':'D';
+ return `<tr><td class="p-3 font-semibold">${n[0]}</td><td class="p-3">${n[1]}</td><td class="p-3">${n[2]}</td><td class="p-3">${n[3]}</td><td class="p-3 font-black text-primary">${akhir}</td><td class="p-3">${pred}</td></tr>`;
+}).join('');
+
+document.querySelectorAll('.tabbtn').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.tabbtn').forEach(x=>{x.classList.remove('text-primary','border-b-2','border-primary');x.classList.add('text-slate-500');});
+ b.classList.add('text-primary','border-b-2','border-primary');b.classList.remove('text-slate-500');
+ document.querySelectorAll('.tabpanel').forEach(p=>p.classList.add('hidden'));
+ document.getElementById('tab-'+b.dataset.tab).classList.remove('hidden');
+}));
+
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('hidden'));
+document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobileMenu').classList.add('hidden')));
+</script>
+</body>
+</html>
