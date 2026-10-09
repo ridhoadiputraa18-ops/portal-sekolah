@@ -85,7 +85,7 @@ tailwind.config = { theme: { extend: {
       </div>
       <a href="#ppdb" class="px-3 py-2 hover:text-primary">PPDB</a>
       <a href="#kontak" class="px-3 py-2 hover:text-primary">KONTAK</a>
-      <a href="portal-akademik.html" class="ml-2 bg-primary hover:bg-primarydark text-white px-4 py-2 rounded shadow"><i class="fa-solid fa-right-to-bracket mr-1"></i>LOGIN</a>
+      <a href="#portal" class="ml-2 bg-primary hover:bg-primarydark text-white px-4 py-2 rounded shadow"><i class="fa-solid fa-right-to-bracket mr-1"></i>LOGIN</a>
     </nav>
     <button id="hamburger" class="lg:hidden text-2xl text-primary"><i class="fa-solid fa-bars"></i></button>
   </div>
@@ -100,7 +100,7 @@ tailwind.config = { theme: { extend: {
     <a href="#jurusan" class="block py-1">Jurusan</a>
     <a href="#ppdb" class="block py-1">PPDB</a>
     <a href="#kontak" class="block py-1">Kontak</a>
-    <a href="portal-akademik.html" class="block py-1 text-primary">Login Portal</a>
+    <a href="#portal" class="block py-1 text-primary">Login Portal</a>
   </div>
 </header>
 
@@ -375,10 +375,16 @@ tailwind.config = { theme: { extend: {
       </div>
       <div class="space-y-4">
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-          <p class="font-black text-dark mb-4"><i class="fa-solid fa-right-to-bracket text-primary mr-2"></i>Portal Akademik Guru</p>
-          <p class="text-xs text-slate-500 mb-3">Masuk untuk mengelola nilai, melihat peringkat kelas, dan mencetak rapor PDF.</p>
-          <a href="portal-akademik.html" class="block text-center w-full bg-primary hover:bg-primarydark text-white py-2.5 rounded-lg font-bold text-sm mb-3">Buka Login Guru →</a>
-          <p class="text-xs text-slate-400 mb-2">Akun demo untuk pengujian</p>
+          <p class="font-black text-dark mb-4"><i class="fa-solid fa-right-to-bracket text-primary mr-2"></i>Login Portal</p>
+          <form onsubmit="event.preventDefault(); alert('Login berhasil (demo)!');" class="space-y-3">
+            <select class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+              <option>Siswa</option><option>Guru</option><option>Orang Tua</option>
+            </select>
+            <input required placeholder="NIS / NIP" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+            <input required type="password" placeholder="Password" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+            <button class="w-full bg-primary hover:bg-primarydark text-white py-2.5 rounded-lg font-bold text-sm">Masuk</button>
+            <p class="text-xs text-slate-500 text-center"><a href="#" class="text-primary font-bold">Lupa password?</a></p>
+          </form>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
           <p class="font-black text-dark mb-4"><i class="fa-solid fa-link text-primary mr-2"></i>Layanan Digital</p>
@@ -452,7 +458,7 @@ tailwind.config = { theme: { extend: {
       <p class="text-xs leading-relaxed">Jl. Teknologi Raya No. 88<br>Cengkareng, Jakarta Barat 11710<br>WA. 0811-555-0123<br>info@smknusantara.sch.id</p>
     </div>
   </div>
-  <div class="border-t border-white/10 py-4 text-center text-xs">Copyright © 2026 SMK NUSANTARA TEKNOLOGI · Seluruh hak cipta dilindungi.</div>
+  <div class="border-t border-white/10 py-4 text-center text-xs">Copyright © 2026 SMK NUSANTARA TEKNOLOGI · Konten dummy untuk keperluan tugas pengembangan aplikasi portal sekolah.</div>
 </footer>
 
 <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-primary text-white shadow-lg hover:bg-primarydark z-40"><i class="fa-solid fa-chevron-up"></i></button>
